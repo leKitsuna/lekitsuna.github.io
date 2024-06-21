@@ -1,0 +1,132 @@
+.ubuntu-light {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.ubuntu-regular {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ubuntu-medium {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.ubuntu-bold {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.ubuntu-light-italic {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.ubuntu-regular-italic {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.ubuntu-medium-italic {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.ubuntu-bold-italic {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.body_index {
+    background-color: rgb(22, 22, 22);
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.index_menu {
+    display: flex;
+    justify-content: left;
+    color: white;
+}
+
+.menu_icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+.menu_btn {
+    margin-left: 1%;
+    margin-right: 1%;
+    text-decoration: none;
+    color: white;
+}
+
+.div_index_1 {
+    padding: 30px;
+    background: linear-gradient(rgb(126, 126, 126), rgb(22, 22, 22));
+}
+
+.headingText {
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 80px;
+    margin-bottom: 1px;
+    color: azure;
+}
+
+.icon_img {
+    width: 250px;
+    height: 250px;
+}
+
+.icon_img_2 {
+    width: 250px;
+    height: 200px;
+}
+
+.img_div {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.defaultText {
+    margin-top: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: azure;
+}
+
+.defaultTextS {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: azure;
+}
+
+.div_index_2 {
+    margin-top: 12%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom: 5%;
+    display: flex;
+}
+
+.img_div_2 {
+    display: flex;
+}
