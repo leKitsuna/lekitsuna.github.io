@@ -125,6 +125,13 @@
     color: azure;
 }
 
+.defaultTextS_1 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+
 .div_index_2 {
     margin-top: 12%;
     margin-left: 8%;
@@ -163,6 +170,35 @@
     vertical-align: middle;
     white-space: nowrap;
     word-wrap: break-word;
+}
+
+.button-4-1 {
+    width: 100px;
+    height: 30px;
+    appearance: none;
+    background-color: #FAFBFC;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #24292E;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: small;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 6px 16px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+    margin-bottom: 2%;
 }
 
 .button-4:hover {
@@ -242,8 +278,9 @@
     display: flex;
     justify-content: center;
     width: 94%;
-    height: 500px;
-    border-radius: 1%;
+    height: 45%;
+    border-radius: 5px;
+    border: white solid;
 }
 
 .info_div_2 {
@@ -253,11 +290,23 @@
     justify-content: center;
     width: 94%;
     height: 600px;
-    border-radius: 1%;
+    border-radius: 5px;
+    border: white solid;
 }
 
 .info_p {
     color: azure;
     font-family: 'Ubuntu', sans-serif;
     font-size: xx-large;
+}
+
+.application_form {
+    margin: 3%;
+    margin-left: 27.5%;
+    width: 43%;
+    height: auto;
+    background-color: rgb(179, 179, 179);
+    border-radius: 5px;
+    border: white solid;
+    padding-left: 2%;
 }
