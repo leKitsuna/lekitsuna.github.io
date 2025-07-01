@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    position: fixed;
+    overflow: hidden;
+}
+
+.kosugi-maru-regular {
+  font-family: "Kosugi Maru", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mainDiv {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bgImg {
+    left: -25vw;
+    transition: left 0.6s ease;
+}
+
+.bgImg.loaded {
+    position: absolute;
+    height: 100vh;
+    left: -18vw;
+    transition: height 0.6s ease, left 0.6 ease;
+}
+
+.fgImg {
+    left: 20vw;
+    transition: left 0.6s ease;
+}
+
+.fgImg.loaded {
+    position: absolute;
+    height: 110vh;
+    left: 10vw;
+    transition: height 0.6s ease, left 0.6s ease;
+}
+
+.button_div {
+    left: 78vw;
+    transition: left 0.6 ease;
+}
+
+.button_div.loaded {
+    position: relative;
+    width: 20vw;
+    height: 50vh;
+    left: 68vw;
+    top: 25vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.6s ease;
+    gap: 5%;
+}
+
+.refbtn {
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 5px solid #4A4A4A;
+    border-radius: 30px;
+    width: 90%;
+    height: 40%;
+    font-family: "Kosugi Maru", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5vh;
+    line-height: 5vh;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.3));
+}
+
+.refbtn:hover {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    transition: width 0.2s ease, background-color 0.2s ease;    
+}
+
+.social_div {
+    left: 84vw;
+    transition: left 0.6s ease;
+}
+
+.social_div.loaded {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+    position: relative;
+    width: 26.04vw;
+    height: 9.26vh;
+    left: 74vw;
+    top: 40.8vh;
+    padding: 1%;
+    padding-top: 1.2%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    transition: left 0.6s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.icon {
+    width: 3,65vw;
+    height: 6.48vh;
+}
+
+/* Social Media Buttons
+
+position: absolute;
+width: 500px;
+height: 100px;
+left: 1420px;
+top: 980px;
+
+
+
+/* Rectangle 1 */
+
+/* position: absolute;
+width: 500px;
+height: 100px;
+left: 1420px;
+top: 980px;
+
+background: rgba(255, 255, 255, 0.9);
+border-radius: 5px; */
+
+
+/* icons8-headphones-60 1 */
+
+/* position: absolute;
+width: 3,65vw;
+height: 6.48vh;
+left: 1440px;
+top: 995px;
+
+background: url(icons8-headphones-60.png); */

@@ -2,55 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="base\imgs\icon.ico">
+    <link rel="shortcut icon" href="dependecies\TUYU.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="base\style.css">
-    <title>CompService</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <title>TUYU</title>
 </head>
-<body class="body_index">
-    <div class="index_menu">
-        <a href="index.html"><img src="base\imgs\icon.png" title="CompService" alt="CompService" class="menu_icon"></a>
-        <a href="diagnostic.html" class="menu_btn"><p class="ubuntu-regular">Диагностика</p></a>
-        <a href="upgrade.html" class="menu_btn"><p class="ubuntu-regular">Улучшение пк</p></a>
-        <a href="peripheral.html" class="menu_btn"><p class="ubuntu-regular">Периферия</p></a>
-        <a href="keyboards.html" class="menu_btn"><p class="ubuntu-regular">Клавиатуры</p></a>
-        <a href="feedback.html" class="menu_btn"><p class="ubuntu-regular">Отзывы</p></a>
-    </div>
-    <div class="div_index_1">
-        <div class="img_div">
-            <img src="base\imgs\icon.png" alt="" class="icon_img">
-            <img src="base\imgs\repair.png" alt="" class="icon_img">
-            <img src="base\imgs\computer.png" alt="" class="icon_img">
-        </div>
-        <p class="headingText">
-            CompService
-        </p>
-        <p class="defaultText">
-            Сервис компьютерных услуг решит вашу проблему!
-        </p>
-    </div>
-    <div class="div_index_2">
-        <div class="img_div_2">
-            <img src="base\imgs\remont-kompyuterov-pk.jpg" alt="" width="275" height="206.5">
-        </div>
-        <div>
-            <p class="defaultTextS" style="padding-left: 60px">
-                Мы предоставляем различные услуги по диагностике, починке вашего оборудования, от периферии до серверного оборудования!
-                Среди организаций, которым мы предоставили наши услуги, есть: Транснефть, Газпром, Яндекс, Тинькофф и множество других маленьких компаний!
-            </p>
-        </div>
-    </div>
-    <div class="div_index_2">
-        <div style="margin-right: 5%;text-align:center">
-            <p class="defaultTextS">Если у вас есть какие-то проблемы с оборудованием, то мы вам поможем! Список услуг можно посмотреть, нажав на кнопку ниже.</p>
-            <a href="services.html">
-                <button type="button" class="button-4">Посмотреть услуги</button>
-            </a>
-        </div>
-        <img src="base\imgs\2023-09-08-vau7yr.jpg" alt="" width="300" height="200">
-    </div>
-    <div style="color:rgb(68, 68, 68);margin-right:2%;margin-bottom:1%;text-align:right">
-        OOO "CompService"
-    </div>
+<body>
+
+   <div class="mainDiv">
+      <img id="bg" src="" alt="" class="bgImg">
+      <img id="fg" src="" alt="" class="fgImg">
+      <div id="btndiv" class="button_div">
+         <button class="refbtn" onclick="window.location.href='releases.html'">リリース</button>
+         <button class="refbtn" onclick="window.location.href='mvs.html'">ミュージック ビデオ</button>
+         <button class="refbtn" onclick="window.location.href='news.html'">ニュース</button>
+      </div>
+      <div id="scdiv" class="social_div">
+         <a href="https://www.youtube.com/@TUYU_official"><img src="dependecies\social_media\youtube.png" alt="" class="icon"></a>
+         <a href="https://x.com/TUYU_official"><img src="dependecies\social_media\twitter.png" alt="" class="icon"></a>
+         <a href="https://instagram.com/rei_tuyu"><img src="dependecies\social_media\instagram.png" alt="" class="icon"></a>
+         <a href="https://space.bilibili.com/1197897980"><img src="dependecies\social_media\bilibili.png" alt="" class="icon"></a>
+         <a href="https://www.facebook.com/TUYU.staff/"><img src="dependecies\social_media\facebook.png" alt="" class="icon"></a>
+         <a href="https://open.spotify.com/artist/0PHf0oiic0xAnCrRuLTtHl?si=WoV_JvoRQZKV5IePLI1Oqw"><img src="dependecies\social_media\headphones.png" alt="" class="icon"></a>
+      </div>
+   </div>
+
+<script>
+
+   const bg = document.getElementById('bg');
+   const fg = document.getElementById('fg');
+   const btndiv = document.getElementById('btndiv')
+   const scdiv = document.getElementById('scdiv')
+
+   const Images = {
+      TUYU_1: {
+         bg: "dependecies/TUYU_1.jpg",
+         fg: "dependecies/fg/fg_3.png"
+      },
+      TUYU_2: {
+         bg: "dependecies/TUYU_2.jpg",
+         fg: "dependecies/fg/fg_1.png"
+      },
+      TUYU_3: {
+         bg: "dependecies/TUYU_3.jpg",
+         fg: "dependecies/fg/fg_2.png"
+      },
+      TUYU_4: {
+         bg: "dependecies/TUYU_4.jpg",
+         fg: "dependecies/fg/fg_6.png"
+      },
+      TUYU_5: {
+         bg: "dependecies/TUYU_5.jpg",
+         fg: "dependecies/fg/fg_5.png"
+      },
+      TUYU_6: {
+         bg: "dependecies/TUYU_6.jpg",
+         fg: "dependecies/fg/fg_1.png"
+      },
+      TUYU_7: {
+         bg: "dependecies/TUYU_7.png",
+         fg: "dependecies/fg/fg_4.png"
+      },
+   };
+
+   function setRandImg() {
+      const categories = Object.keys(Images);
+      const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+
+      bg.src = Images[randomCategory].bg;
+      fg.src = Images[randomCategory].fg;
+
+      bg.classList.add('loaded');
+      fg.classList.add('loaded');
+      btndiv.classList.add('loaded');
+      scdiv.classList.add('loaded');
+   };
+
+   window.onload = setRandImg;
+
+</script>
+
 </body>
 </html>
