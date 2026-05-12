@@ -342,9 +342,9 @@
       async function measureDownloadSpeed(serverUrl) {
         // Try multiple test files as fallback
         const testUrls = [
-          'http://ipv4.download.thinkbroadband.com:8080/50MB.zip',
-          'http://ipv4.download.thinkbroadband.com:81/50MB.zip', // fallback
-          'http://ipv4.download.thinkbroadband.com/50MB.zip'
+          'https://proof.ovh.net/files/100Mb.dat',
+          'https://upload.wikimedia.org/wikipedia/commons/0/00/Big_Buck_Bunny_4K.webm',
+          'https://upload.wikimedia.org/wikipedia/commons/2/2d/Snake_River_%285mb%29.jpg'
         ];
         
         for (let urlIndex = 0; urlIndex < testUrls.length; urlIndex++) {
