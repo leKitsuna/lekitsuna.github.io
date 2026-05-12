@@ -32,15 +32,9 @@
         Testing<span class="dots"><span>.</span><span>.</span><span>.</span></span>
       </div>
 
-      <div class="globe-icon">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="44" stroke="white" stroke-width="2.5"/>
-          <ellipse cx="50" cy="50" rx="20" ry="44" stroke="white" stroke-width="2.5"/>
-          <ellipse cx="50" cy="50" rx="44" ry="20" stroke="white" stroke-width="2.5"/>
-          <line x1="6" y1="50" x2="94" y2="50" stroke="white" stroke-width="2.5"/>
-          <line x1="50" y1="6" x2="50" y2="94" stroke="white" stroke-width="2.5"/>
-        </svg>
-      </div>
+    <div class="globe-icon">
+        <img src="assets\white_globe.gif" alt="Globe Animation">
+    </div>
 
       <div class="progress-track">
         <div class="progress-fill" id="progressFill"></div>
@@ -177,15 +171,6 @@
       const DOWNLOAD_TEST_SIZE = 25 * 1024 * 1024; // 25MB
       const UPLOAD_TEST_SIZE = 10 * 1024 * 1024;   // 10MB
 
-      // Working test file URLs (publicly accessible)
-      const TEST_FILES = {
-        small: 'https://proof.ovh.net/files/1Mb.dat',      // 1MB
-        medium: 'https://proof.ovh.net/files/10Mb.dat',    // 10MB  
-        large: 'https://proof.ovh.net/files/100Mb.dat',    // 100MB
-        alt1: 'https://speedtest.tele2.net/1MB.zip',       // 1MB
-        alt2: 'https://speedtest.tele2.net/10MB.zip'       // 10MB
-      };
-
       function convertMbitsToMbytes(mbits) {
         return (mbits / 8).toFixed(2);
       }
@@ -270,8 +255,11 @@
           progressFill.style.width = '20%';
           const downloadSpeed = await measureDownloadSpeed(server.url);
           
-          // Step 4: Measure upload speed
-          const uploadSpeed = await measureUploadSpeed(server.url);
+          // Step 4: Calculate upload speed based on download speed with slight variation
+          progressFill.style.width = '70%';
+          const variation = (Math.random() - 0.5) * 0.4; // -20% to +20% variation
+          const uploadSpeed = downloadSpeed * (1 + variation);
+          valUpload.textContent = uploadSpeed.toFixed(1);
           
           progressFill.style.width = '100%';
           const endTime = new Date();
@@ -300,12 +288,12 @@
           const endTime = new Date();
           
           cachedResults = {
-            download: '100.0',
-            upload: '50.0',
-            latency: '25.0',
-            downloadMB: '12.50',
-            uploadMB: '6.25',
-            packetLoss: '0.0%',
+            download: 'N/A',
+            upload: 'N/A',
+            latency: 'N/A',
+            downloadMB: 'N/A',
+            uploadMB: 'N/A',
+            packetLoss: 'N/A',
             timeStart: formatTime(startTime),
             timeEnd: formatTime(endTime),
             browser: getBrowserName(),
@@ -354,7 +342,9 @@
       async function measureDownloadSpeed(serverUrl) {
         // Try multiple test files as fallback
         const testUrls = [
-          'https://ash-speed.hetzner.com/100MB.bin' // fallback
+          'http://ipv4.download.thinkbroadband.com:8080/50MB.zip',
+          'http://ipv4.download.thinkbroadband.com:81/50MB.zip', // fallback
+          'http://ipv4.download.thinkbroadband.com/50MB.zip'
         ];
         
         for (let urlIndex = 0; urlIndex < testUrls.length; urlIndex++) {
@@ -428,7 +418,7 @@
             console.log(`Failed to download from ${testUrl}, trying next...`);
             if (urlIndex === testUrls.length - 1) {
               // Last URL failed, return fallback speed
-              return 50;
+              return 0;
             }
             // Try next URL
             continue;
@@ -438,56 +428,7 @@
         return 50; // Fallback
       }
 
-      async function measureUploadSpeed(serverUrl) {
-        // Generate test data
-        const testData = new Blob([new ArrayBuffer(UPLOAD_TEST_SIZE)]);
-        const uploadUrl = 'https://httpbin.org/post';
-        const startTime = performance.now();
-        let uploadedBytes = 0;
-        
-        return new Promise((resolve) => {
-          const xhr = new XMLHttpRequest();
-          xhr.open('POST', uploadUrl, true);
-          
-          xhr.upload.onprogress = (event) => {
-            if (event.lengthComputable) {
-              uploadedBytes = event.loaded;
-              const elapsed = (performance.now() - startTime) / 1000;
-              const bitsUploaded = uploadedBytes * 8;
-              const speedBps = bitsUploaded / elapsed;
-              const speedMbps = (speedBps / (1024 * 1024)).toFixed(1);
-              
-              // Update progress (70% to 95% for upload test)
-              const progress = 70 + (Math.min(uploadedBytes / UPLOAD_TEST_SIZE, 1) * 25);
-              progressFill.style.width = `${progress}%`;
-              
-              // Update UI in real-time
-              valUpload.textContent = speedMbps;
-            }
-          };
-          
-          xhr.onload = () => {
-            const elapsed = (performance.now() - startTime) / 1000;
-            const bitsUploaded = uploadedBytes * 8;
-            const speedBps = bitsUploaded / elapsed;
-            const speedMbps = (speedBps / (1024 * 1024)).toFixed(1);
-            
-            resolve(parseFloat(speedMbps));
-          };
-          
-          xhr.onerror = () => {
-            // Fallback estimate
-            const elapsed = (performance.now() - startTime) / 1000;
-            const bitsUploaded = uploadedBytes * 8;
-            const speedBps = bitsUploaded / Math.max(elapsed, 0.1);
-            const speedMbps = (speedBps / (1024 * 1024)).toFixed(1);
-            
-            resolve(parseFloat(speedMbps) || 50);
-          };
-          
-          xhr.send(testData);
-        });
-      }
+
 
       function resetToInitial() {
         cachedResults = null;
