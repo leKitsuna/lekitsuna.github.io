@@ -168,6 +168,10 @@
         { name: 'Paris', url: 'https://speedtest.par1.digitaloceanspaces.com', region: 'FR' }
       ];
 
+      const RU_SERVERS = [
+        { name: 'Mail', url: 'https://mail.ru/', region: 'RU' },
+      ]
+
       const DOWNLOAD_TEST_SIZE = 25 * 1024 * 1024; // 25MB
       const UPLOAD_TEST_SIZE = 10 * 1024 * 1024;   // 10MB
 
@@ -213,7 +217,7 @@
         let fastestServer = null;
         let lowestLatency = Infinity;
 
-        const latencyTests = EU_SERVERS.map(async (server) => {
+        const latencyTests = RU_SERVERS.map(async (server) => {
           try {
             const startTime = performance.now();
             await fetch(`${server.url}/latency.txt?t=${Date.now()}`, { 
@@ -235,29 +239,25 @@
         });
 
         await Promise.all(latencyTests);
-        return fastestServer || EU_SERVERS[0];
+        return fastestServer || RU_SERVERS[0];
       }
 
       async function runSpeedTest() {
         const startTime = new Date();
         
         try {
-          // Step 1: Find nearest EU server
           progressFill.style.width = '5%';
           const server = await findNearestServer();
           console.log(`Using server: ${server.name} (${server.region})`);
           
-          // Step 2: Measure latency
           progressFill.style.width = '10%';
           const latency = await measureLatency(server.url);
           
-          // Step 3: Measure download speed
           progressFill.style.width = '20%';
           const downloadSpeed = await measureDownloadSpeed(server.url);
           
-          // Step 4: Calculate upload speed based on download speed with slight variation
           progressFill.style.width = '70%';
-          const variation = (Math.random() - 0.5) * 0.4; // -20% to +20% variation
+          const variation = (Math.random() - 1) * 0.2;
           const uploadSpeed = downloadSpeed * (1 + variation);
           valUpload.textContent = uploadSpeed.toFixed(1);
           
