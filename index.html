@@ -6,6 +6,7 @@
   <title>katanetwork — showing your "real speed"</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="shortcut icon" href="assets\spider.svg" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -17,11 +18,17 @@
   <div class="app">
 
     <div class="title-block" id="titleBlock">
-      <h1>katanetwork</h1>
-      <p class="slogan">showing your "real speed"</p>
+      <div class="img-wrapper">
+        <img src="assets\spider.svg" alt="Spider Icon" class="spider-logo-static">
+        <img src="assets/spider.gif" alt="Animated Spider Icon" class="spider-logo-animated">
+      </div>
+      <div style="margin-left: 1vw">
+        <h1>katanetwork</h1>
+        <p class="slogan">showing your "real speed"</p>
+      </div>
     </div>
 
-    <div class="footer-copy" id="footerCopy">© 2026 yuikkonu</div>
+    <a class="footer-copy" id="footerCopy" href="about.html" target="_blank" rel="noopener noreferrer">© 2026 yuikkonu</a>
 
     <div class="begin-container" id="beginContainer">
       <button class="btn-begin" id="btnBegin">Begin</button>
@@ -160,7 +167,6 @@
 
       let cachedResults = null;
 
-      // ===== EU Server Endpoints =====
       const EU_SERVERS = [
         { name: 'Frankfurt', url: 'https://speedtest.fra1.digitaloceanspaces.com', region: 'DE' },
         { name: 'Amsterdam', url: 'https://speedtest.ams3.digitaloceanspaces.com', region: 'NL' },
@@ -212,7 +218,6 @@
         return 'Unknown Browser';
       }
 
-      // ===== Find Nearest EU Server =====
       async function findNearestServer() {
         let fastestServer = null;
         let lowestLatency = Infinity;
@@ -340,7 +345,6 @@
       }
 
       async function measureDownloadSpeed(serverUrl) {
-        // Try multiple test files as fallback
         const testUrls = [
           'https://lekitsuna.github.io/assets/100MB.bin',
           'https://upload.wikimedia.org/wikipedia/commons/2/2f/Making_snowman_in_K%C3%B5rvemaa%2C_Estonia_%28January_2022%29.webm?download'
@@ -412,19 +416,17 @@
               xhr.send();
             });
             
-            return result; // Success with this URL
+            return result;
           } catch (error) {
             console.log(`Failed to download from ${testUrl}, trying next...`);
             if (urlIndex === testUrls.length - 1) {
-              // Last URL failed, return fallback speed
               return 0;
             }
-            // Try next URL
             continue;
           }
         }
         
-        return 50; // Fallback
+        return 50;
       }
 
 

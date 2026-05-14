@@ -41,8 +41,39 @@ html, body {
     height: 100vh;
 }
 
+.spider-logo-animated {
+    position: absolute;
+    width: clamp(2.5rem, 6vw, 5rem);
+    height: clamp(2.5rem, 6vw, 5rem);
+    margin-right: 1vw;
+    transform: rotate(38deg);
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+    opacity: 0;
+}
+
+.spider-logo-static {
+    position: absolute;
+    width: clamp(2.5rem, 6vw, 5rem);
+    height: clamp(2.5rem, 6vw, 5rem);
+    margin-right: 1vw;
+    transform: rotate(38deg);
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+    opacity: 1;
+}
+
+.img-wrapper {
+    position: relative;
+    width: clamp(2.5rem, 6vw, 5rem);
+    height: clamp(2.5rem, 6vw, 5rem);
+    aspect-ratio: 1 / 1;
+}
+
+.img-wrapper:hover .spider-logo-animated { opacity: 1; }
+.img-wrapper:hover .spider-logo-static { opacity: 0; }
+
 .title-block {
     position: fixed;
+    display: flex;
     top: 3.5vh;
     left: 3vw;
     z-index: 20;
@@ -71,8 +102,8 @@ html, body {
     opacity: 0.85;
 }
 
-/* ===== FOOTER COPYRIGHT ===== */
 .footer-copy {
+    color: #ffffff;
     position: fixed;
     bottom: 2vh;
     left: 50%;
@@ -83,6 +114,7 @@ html, body {
     z-index: 20;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     transition: opacity 0.8s ease;
+    text-decoration: none;
 }
 
 .begin-container {
@@ -148,7 +180,7 @@ html, body {
 }
 
 .testing-text {
-    font-size: clamp(1rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 400;
     letter-spacing: 0.05em;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -170,8 +202,8 @@ html, body {
 }
 
 .globe-icon {
-    width: clamp(6rem, 15vw, 20rem);
-    height: clamp(6rem, 15vw, 20rem);
+    width: clamp(10rem, 15vw, 20rem);
+    height: clamp(10rem, 15vw, 20rem);
     opacity: 0;
     animation: fadeGlobe 0.8s ease 0.3s forwards;
     filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
@@ -195,7 +227,7 @@ html, body {
 
 .progress-track {
     width: clamp(10rem, 18vw, 18rem);
-    height: clamp(0.3rem, 2vh, 1rem);
+    height: clamp(0.3rem, 1.5vh, 1rem);
     background: rgba(75, 75, 75, 0.719);
     border-radius: 999px;
     overflow: hidden;
